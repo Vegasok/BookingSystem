@@ -38,6 +38,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
 
 public class BookingSystem {
 
@@ -499,14 +500,11 @@ public class BookingSystem {
 		JPanel panel_26 = new JPanel();
 		panel_26.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_3.add(panel_26);
-		panel_26.setLayout(new BorderLayout(0, 0));
+		panel_26.setLayout(new BorderLayout(0, 0));		
 		
-		jTable1 = new JTable();
-		jTable1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		jTable1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		model = new DefaultTableModel(new String[]{"MemberID", "Visitor (Non-member)", "Visitor (Membership)", "Ticket(Single)", "Ticket(Annually)", "Female", "Male", "Firstname", "Lastname", "Selected Club"}, 0);
 		model.addRow(new Object[] {"MemberID", "Visitor (Non-member)", "Visitor (Membership)", "Ticket(Single)", "Ticket(Annually)", "Female", "Male", "Firstname", "Lastname", "Selected Club"});	
-					
+		
 		
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -547,14 +545,23 @@ public class BookingSystem {
 			}
 		}
 		
+		jTable1 = new JTable();
+		
+		JScrollPane scrollPane = new JScrollPane(jTable1);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        panel_26.add(scrollPane);
+        
+		jTable1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		jTable1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
 		jTable1.setModel(model);		
 		
 		jTable1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		jTable1.setFillsViewportHeight(true);
 		jTable1.setColumnSelectionAllowed(true);
 		jTable1.setCellSelectionEnabled(true);
-		panel_26.add(jTable1, BorderLayout.CENTER);
-		
+				
 		JPanel panel_25 = new JPanel();
 		panel_25.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_3.add(panel_25);
