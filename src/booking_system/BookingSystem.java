@@ -446,7 +446,7 @@ public class BookingSystem {
 				}
 				
 				model.setRowCount(0);
-				model.addRow(new Object[] {"MemberID", "Visitor (Non-member)", "Visitor (Membership)", "Ticket(Single)", "Ticket(Annually)", "Female", "Male", "Firstname", "Lastname", "Selected Club"});
+				
 				try {
 					Class.forName("oracle.jdbc.OracleDriver");
 					connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:FORTESTING","DWADM","DWADM");
@@ -503,8 +503,6 @@ public class BookingSystem {
 		panel_26.setLayout(new BorderLayout(0, 0));		
 		
 		model = new DefaultTableModel(new String[]{"MemberID", "Visitor (Non-member)", "Visitor (Membership)", "Ticket(Single)", "Ticket(Annually)", "Female", "Male", "Firstname", "Lastname", "Selected Club"}, 0);
-		model.addRow(new Object[] {"MemberID", "Visitor (Non-member)", "Visitor (Membership)", "Ticket(Single)", "Ticket(Annually)", "Female", "Male", "Firstname", "Lastname", "Selected Club"});	
-		
 		
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -556,7 +554,7 @@ public class BookingSystem {
 		jTable1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		jTable1.setModel(model);		
-		
+		 
 		jTable1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		jTable1.setFillsViewportHeight(true);
 		jTable1.setColumnSelectionAllowed(true);
